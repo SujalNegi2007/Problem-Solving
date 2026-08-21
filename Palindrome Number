@@ -1,0 +1,14 @@
+#At first i thought of converting Number into string.
+#then i converted that string into a list.
+#After which i made a new variable in which i reversed the list.
+#And at last i used "if" to check palindrome number"
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        num = str(x)
+        list_num = list(num)
+        reversed_list = list(reversed(list_num))
+        if list_num == reversed_list:
+            return True
+        else:
+            return False
