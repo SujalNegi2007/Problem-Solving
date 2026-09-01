@@ -1,0 +1,54 @@
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        value = list(s)
+        result = 0
+        experiment = []
+        for i in range(len(value)):
+            if value[i] in ["I", "V", "X"]:
+                if value[i] == "I":
+                    result += 1
+                    experiment.append(value[i])
+                elif value[i] == "V":
+                    if len(experiment) != 0 and ["I"] in experiment:
+                        result += 3
+                        experiment.remove("I")
+                    else:
+                        result += 5
+                    experiment.append(value[i])
+                else:
+                    if len(experiment) != 0 and ["I"] in experiment:
+                        result += 8
+                        experiment.remove("I")
+                    else:
+                        result += 10
+                    experiment.append(value[i])
+            elif value[i] in ["L", "C", "D"]:
+                if value[i] == "L":
+                    if len(experiment) != 0 and ["X"] in experiment:
+                        result += 30
+                        experiment.remove("X")
+                    else:
+                        result += 50
+                    experiment.append(value[i])
+                elif value[i] == "C":
+                    if len(experiment) != 0 and ["X"] in experiment:
+                        result += 80
+                        experiment.remove("X")
+                    else:
+                        result += 100
+                    experiment.append(value[i])
+                else:
+                    if len(experiment) != 0 and ["C"] in experiment:
+                        result += 300
+                        experiment.remove("C")
+                    else:
+                        result += 500
+                    experiment.append(value[i])
+            else:
+                if len(experiment) != 0 and ["C"] in experiment:
+                        result += 800
+                        experiment.remove("C")
+                else:
+                    result += 1000
+                experiment.append(value[i])
+        return result
