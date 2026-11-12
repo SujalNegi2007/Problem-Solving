@@ -22,27 +22,22 @@ class Solution:
         a = 1
         b = n - 1
         for i in range(n):
-            k = 0
-            while k < n:
-                if a != b and i != a and i != b:
-                    if nums[a] + nums[b] + nums[i] == 0:
-                        temp = True
-                        for j in range(len(result)):
-                            if sorted([nums[a], nums[b], nums[i]]) == sorted(result[j]):
-                                temp = False
-                        if temp:
-                            result.append([nums[a], nums[b], nums[i]])
-                    elif nums[i] + nums[a] < -nums[b]:
-                        if b < n-1:
-                            b += 1
-                        else:
-                            a += 1
-                    elif nums[i] + nums[a] > -nums[b]:
-                        if a > 1:
-                            a -= 1
-                        else:
-                            b -= 1
-                k += 1
-            a = 0
+            while a < b:
+                if i == a or i == b:
+                    break
+                if nums[a] + nums[b] + nums[i] == 0:
+                    temp = True
+                    for j in range(len(result)):
+                        if sorted([nums[a], nums[b], nums[i]]) == sorted(result[j]):
+                            temp = False
+                    if temp:
+                        result.append([nums[a], nums[b], nums[i]])
+                    a += 1
+                    b -= 1
+                elif nums[i] + nums[a] < -nums[b]:
+                    a += 1
+                elif nums[i] + nums[a] > -nums[b]:
+                    b -= 1
+            a = i + 2
             b = n - 1
         return result
