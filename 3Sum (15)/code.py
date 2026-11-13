@@ -19,25 +19,20 @@ class Solution:
         result = []
         n = len(nums)
         nums.sort()
-        a = 1
-        b = n - 1
         for i in range(n):
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            a = i+1
+            b = n-1
             while a < b:
-                if i == a or i == b:
-                    break
                 if nums[a] + nums[b] + nums[i] == 0:
-                    temp = True
-                    for j in range(len(result)):
-                        if sorted([nums[a], nums[b], nums[i]]) == sorted(result[j]):
-                            temp = False
-                    if temp:
-                        result.append([nums[a], nums[b], nums[i]])
+                    result.append([nums[i], nums[a], nums[b]])
                     a += 1
                     b -= 1
+                    while a < b and nums[a] == nums[a-1]:
+                        a += 1
                 elif nums[i] + nums[a] < -nums[b]:
                     a += 1
                 elif nums[i] + nums[a] > -nums[b]:
                     b -= 1
-            a = i + 2
-            b = n - 1
         return result
