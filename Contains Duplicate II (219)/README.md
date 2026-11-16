@@ -16,8 +16,8 @@ Given an integer array nums and an integer k, return true if there are two **dis
 > **Output:** false
 
 **Constraints:**
-> 1 <= nums.length <= 105
+> `1 <= nums.length <= 105`
 > 
-> -109 <= nums[i] <= 109
+> `-109 <= nums[i] <= 109`
 > 
-> 0 <= k <= 105
+> `0 <= k <= 105`
