@@ -1,3 +1,9 @@
+## 448. Find All Numbers Disappeared in an Array
+
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-00b8a3?style=flat-square)
+![Topic](https://img.shields.io/badge/Topic-Array-grey?style=flat-square)
+![Topic](https://img.shields.io/badge/Topic-Hash_Table-grey?style=flat-square)
+
 Given an array `nums` of `n` integers where `nums[i]` is in the range `[1, n]`, return an array of all the integers in the range `[1, n]` that do not appear in `nums`.
 
 **Example 1:**
@@ -17,3 +23,5 @@ Given an array `nums` of `n` integers where `nums[i]` is in the range `[1, n]`, 
 > `1 <= n <= 105`
 > 
 > `1 <= nums[i] <= n`
+
+**Follow up:** Could you do it without extra space and in `O(n)` runtime? You may assume the returned list does not count as extra space.
